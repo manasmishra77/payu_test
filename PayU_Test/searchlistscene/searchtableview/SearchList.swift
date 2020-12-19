@@ -108,11 +108,16 @@ extension SearchList: UICollectionViewDelegate, UICollectionViewDataSource, UICo
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if indexPath.row == viewModel.listCount - 1 && indexPath.row != 0 {
-            self.delegate.callForNextPageData()
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if viewModel.viewType == .movieList {
+            if(self.searchCollectionView.contentOffset.y >= (self.searchCollectionView.contentSize.height - self.searchCollectionView.bounds.size.height)) {
+                self.delegate.callForNextPageData()
+            }
         }
+       
     }
+
 
 }
     
