@@ -53,8 +53,9 @@ class MovieListVCViewModel {
         if isInApiCall {
             return
         }
+        let modifiedSearchKey = searchKey.removingLeadingSpaces().trimTrailingWhitespace()
         
-        let isPrevSearch = searchKey == currentSearchKey
+        let isPrevSearch = modifiedSearchKey == currentSearchKey
         var pageno = currentPageNo
         if isPrevSearch {
             if pageno + 1 > totalPages {
@@ -63,15 +64,15 @@ class MovieListVCViewModel {
             pageno += 1
         } else {
             self.movieResponse = nil
-            currentSearchKey = searchKey
+            currentSearchKey = modifiedSearchKey
             currentPageNo = 1
             totalPages = 1
             pageno = 1
             self.delegate.newMovieFetchingStarted()
         }
-        updateRecommendation(searchKey: searchKey)
         self.isInApiCall = true
-        networkManager.doNetworkCallForMovieList(searchKey: searchKey, pageNo: pageno, totalPage: totalPages) {[weak self] (code, model, err) in
+        
+        networkManager.doNetworkCallForMovieList(searchKey: modifiedSearchKey, pageNo: pageno, totalPage: totalPages) {[weak self] (code, model, err) in
             guard let self = self else {return}
             self.isInApiCall = false
             DispatchQueue.main.async {
@@ -84,11 +85,13 @@ class MovieListVCViewModel {
                             self.currentPageNo += 1
                             self.totalPages = model.total_pages ?? 1
                             self.movieResponse?.results?.append(contentsOf: model.results ?? [])
+                            self.updateRecommendation(searchKey: modifiedSearchKey)
                             self.delegate.movieDataFetched(with: nil)
                         } else {
                             if model.results?.isEmpty ?? true {
                                 self.delegate.movieDataFetched(with: AppError(code: 456, msg: "Model not present"))
                             } else {
+                                self.updateRecommendation(searchKey: modifiedSearchKey)
                                 self.movieResponse = model
                                 self.currentPageNo = 1
                                 self.totalPages = model.total_pages ?? 1
@@ -112,3 +115,4 @@ class MovieListVCViewModel {
     }
     
 }
+

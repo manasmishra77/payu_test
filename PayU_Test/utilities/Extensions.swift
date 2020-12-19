@@ -165,14 +165,28 @@ extension String {
     func heightOfLabel(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: width, height: .greatestFiniteMagnitude)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-
+        
         return ceil(boundingBox.height)
     }
-
+    
     func widthOfLabel(withConstrainedHeight height: CGFloat, font: UIFont) -> CGFloat {
         let constraintRect = CGSize(width: .greatestFiniteMagnitude, height: height)
         let boundingBox = self.boundingRect(with: constraintRect, options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
-
+        
         return ceil(boundingBox.width)
+    }
+    
+    func trimTrailingWhitespace() -> String {
+        if let trailingWs = self.range(of: "\\s+$", options: .regularExpression) {
+            return self.replacingCharacters(in: trailingWs, with: "")
+        } else {
+            return self
+        }
+    }
+    func removingLeadingSpaces() -> String {
+        guard let index = firstIndex(where: { !CharacterSet(charactersIn: String($0)).isSubset(of: .whitespaces) }) else {
+            return self
+        }
+        return String(self[index...])
     }
 }

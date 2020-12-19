@@ -49,7 +49,8 @@ class NetworkManager: NSObject, NetworkManagerProtocol {
         }
         
         // check url from string
-        guard let url = EndPoint.getMovieList.getMovieListFullPath(searchKey: searchKey, pageNo: pageNo) else {
+       
+        guard let urlString = searchKey.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),  let url = EndPoint.getMovieList.getMovieListFullPath(searchKey: urlString, pageNo: pageNo) else {
             completion(451, nil, NetworkError(code: 451, msg: "url making failed") )
             return
         }
