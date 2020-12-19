@@ -9,9 +9,15 @@ import XCTest
 @testable import PayU_Test
 
 class SearchListViewModelTests: XCTestCase {
+    
+    var networkManager: NetworkManagerProtocol!
+    var viewModel: MovieListVCViewModel!
+    var err: AppError?
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        networkManager = MockNetworkManager()
+        viewModel = MovieListVCViewModel(networkManager: networkManager, delegate: self)
     }
 
     override func tearDownWithError() throws {
@@ -29,5 +35,19 @@ class SearchListViewModelTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    
 
+}
+
+extension SearchListViewModelTests: MovieListVCViewModelDelegate {
+    func newMovieFetchingStarted() {
+        
+    }
+    
+    func movieDataFetched(with err: AppError?) {
+        self.err = err
+    }
+    
+    
 }
