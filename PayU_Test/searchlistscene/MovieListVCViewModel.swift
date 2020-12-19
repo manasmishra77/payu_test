@@ -59,6 +59,7 @@ class MovieListVCViewModel {
             }
             pageno += 1
         } else {
+            self.movieResponse = nil
             currentSearchKey = searchKey
             currentPageNo = 1
             totalPages = 1
