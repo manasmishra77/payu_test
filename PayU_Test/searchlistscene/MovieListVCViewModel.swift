@@ -35,6 +35,9 @@ class MovieListVCViewModel {
     
     func updateRecommendation(searchKey: String) {
         if !recommendations.contains(searchKey) {
+            if searchKey.count >= 10 {
+                recommendations = Array(recommendations.dropFirst())
+            }
             recommendations.append(searchKey)
         }
     }
