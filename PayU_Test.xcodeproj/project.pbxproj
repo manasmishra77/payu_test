@@ -10,8 +10,8 @@
 		1EA2AE6890C5516E0A3168C4 /* Pods_PayU_Test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A0DB1B8695E78D6CD1C0731 /* Pods_PayU_Test.framework */; };
 		56019142258DD8D7007497EA /* MovieListVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56019141258DD8D7007497EA /* MovieListVCViewModel.swift */; };
 		56019147258DDCD9007497EA /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56019146258DDCD9007497EA /* NetworkManagerProtocol.swift */; };
+		56019159258E1827007497EA /* SearchListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56019158258E1827007497EA /* SearchListViewModelTests.swift */; };
 		562248BA258DB26100543917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562248B9258DB26100543917 /* AppDelegate.swift */; };
-		562248BE258DB26100543917 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562248BD258DB26100543917 /* ViewController.swift */; };
 		562248C1258DB26100543917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562248BF258DB26100543917 /* Main.storyboard */; };
 		562248C3258DB26100543917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562248C2258DB26100543917 /* Assets.xcassets */; };
 		562248C6258DB26100543917 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562248C4258DB26100543917 /* LaunchScreen.storyboard */; };
@@ -62,9 +62,9 @@
 		4A0DB1B8695E78D6CD1C0731 /* Pods_PayU_Test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PayU_Test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		56019141258DD8D7007497EA /* MovieListVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListVCViewModel.swift; sourceTree = "<group>"; };
 		56019146258DDCD9007497EA /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
+		56019158258E1827007497EA /* SearchListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelTests.swift; sourceTree = "<group>"; };
 		562248B6258DB26100543917 /* PayU_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayU_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		562248B9258DB26100543917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		562248BD258DB26100543917 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		562248C0258DB26100543917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		562248C2258DB26100543917 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		562248C5258DB26100543917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -137,6 +137,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5601915D258E184C007497EA /* mock */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = mock;
+			sourceTree = "<group>";
+		};
 		562248AD258DB26100543917 = {
 			isa = PBXGroup;
 			children = (
@@ -168,7 +175,6 @@
 				56224900258DB64F00543917 /* managers */,
 				562248F8258DB63600543917 /* models */,
 				562248B9258DB26100543917 /* AppDelegate.swift */,
-				562248BD258DB26100543917 /* ViewController.swift */,
 				562248BF258DB26100543917 /* Main.storyboard */,
 				562248C2258DB26100543917 /* Assets.xcassets */,
 				562248C4258DB26100543917 /* LaunchScreen.storyboard */,
@@ -180,7 +186,9 @@
 		562248CF258DB26100543917 /* PayU_TestTests */ = {
 			isa = PBXGroup;
 			children = (
+				5601915D258E184C007497EA /* mock */,
 				562248D0258DB26100543917 /* PayU_TestTests.swift */,
+				56019158258E1827007497EA /* SearchListViewModelTests.swift */,
 				562248D2258DB26100543917 /* Info.plist */,
 			);
 			path = PayU_TestTests;
@@ -515,7 +523,6 @@
 			files = (
 				5622493C258DB7B100543917 /* SpinnerViewController.swift in Sources */,
 				562248FB258DB64800543917 /* MovieList.swift in Sources */,
-				562248BE258DB26100543917 /* ViewController.swift in Sources */,
 				56224918258DB6C700543917 /* SearchList.swift in Sources */,
 				56224965258DD4EF00543917 /* SearchRecommendationCell.swift in Sources */,
 				56019142258DD8D7007497EA /* MovieListVCViewModel.swift in Sources */,
@@ -536,6 +543,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56019159258E1827007497EA /* SearchListViewModelTests.swift in Sources */,
 				562248D1258DB26100543917 /* PayU_TestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
