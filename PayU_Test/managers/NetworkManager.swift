@@ -82,6 +82,7 @@ class NetworkManager: NSObject, NetworkManagerProtocol {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
 
         let session = URLSession.shared
+        session.configuration.timeoutIntervalForRequest = 10
         let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
             
             if let res = response as? HTTPURLResponse {
