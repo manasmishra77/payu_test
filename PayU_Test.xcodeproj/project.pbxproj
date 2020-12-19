@@ -11,6 +11,12 @@
 		56019142258DD8D7007497EA /* MovieListVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56019141258DD8D7007497EA /* MovieListVCViewModel.swift */; };
 		56019147258DDCD9007497EA /* NetworkManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56019146258DDCD9007497EA /* NetworkManagerProtocol.swift */; };
 		56019159258E1827007497EA /* SearchListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56019158258E1827007497EA /* SearchListViewModelTests.swift */; };
+		5601915F258E1891007497EA /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5601915E258E1891007497EA /* MockNetworkManager.swift */; };
+		56019168258E1905007497EA /* MovieListResult_Page1.json in Resources */ = {isa = PBXBuildFile; fileRef = 56019167258E1905007497EA /* MovieListResult_Page1.json */; };
+		56019170258E19B6007497EA /* MovieResultPage_2.json in Resources */ = {isa = PBXBuildFile; fileRef = 5601916F258E19B6007497EA /* MovieResultPage_2.json */; };
+		56019178258E19F0007497EA /* MovieResultBlankContent.json in Resources */ = {isa = PBXBuildFile; fileRef = 56019177258E19F0007497EA /* MovieResultBlankContent.json */; };
+		5601917D258E1A17007497EA /* MovieResultNewContent.json in Resources */ = {isa = PBXBuildFile; fileRef = 5601917C258E1A17007497EA /* MovieResultNewContent.json */; };
+		56019182258E1A78007497EA /* MockDataGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56019181258E1A78007497EA /* MockDataGet.swift */; };
 		562248BA258DB26100543917 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562248B9258DB26100543917 /* AppDelegate.swift */; };
 		562248C1258DB26100543917 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 562248BF258DB26100543917 /* Main.storyboard */; };
 		562248C3258DB26100543917 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 562248C2258DB26100543917 /* Assets.xcassets */; };
@@ -63,6 +69,12 @@
 		56019141258DD8D7007497EA /* MovieListVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListVCViewModel.swift; sourceTree = "<group>"; };
 		56019146258DDCD9007497EA /* NetworkManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerProtocol.swift; sourceTree = "<group>"; };
 		56019158258E1827007497EA /* SearchListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchListViewModelTests.swift; sourceTree = "<group>"; };
+		5601915E258E1891007497EA /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
+		56019167258E1905007497EA /* MovieListResult_Page1.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieListResult_Page1.json; sourceTree = "<group>"; };
+		5601916F258E19B6007497EA /* MovieResultPage_2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieResultPage_2.json; sourceTree = "<group>"; };
+		56019177258E19F0007497EA /* MovieResultBlankContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieResultBlankContent.json; sourceTree = "<group>"; };
+		5601917C258E1A17007497EA /* MovieResultNewContent.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MovieResultNewContent.json; sourceTree = "<group>"; };
+		56019181258E1A78007497EA /* MockDataGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataGet.swift; sourceTree = "<group>"; };
 		562248B6258DB26100543917 /* PayU_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PayU_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		562248B9258DB26100543917 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		562248C0258DB26100543917 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -140,8 +152,21 @@
 		5601915D258E184C007497EA /* mock */ = {
 			isa = PBXGroup;
 			children = (
+				5601915E258E1891007497EA /* MockNetworkManager.swift */,
+				56019181258E1A78007497EA /* MockDataGet.swift */,
 			);
 			path = mock;
+			sourceTree = "<group>";
+		};
+		56019166258E18CB007497EA /* model_data */ = {
+			isa = PBXGroup;
+			children = (
+				56019167258E1905007497EA /* MovieListResult_Page1.json */,
+				5601916F258E19B6007497EA /* MovieResultPage_2.json */,
+				56019177258E19F0007497EA /* MovieResultBlankContent.json */,
+				5601917C258E1A17007497EA /* MovieResultNewContent.json */,
+			);
+			path = model_data;
 			sourceTree = "<group>";
 		};
 		562248AD258DB26100543917 = {
@@ -186,6 +211,7 @@
 		562248CF258DB26100543917 /* PayU_TestTests */ = {
 			isa = PBXGroup;
 			children = (
+				56019166258E18CB007497EA /* model_data */,
 				5601915D258E184C007497EA /* mock */,
 				562248D0258DB26100543917 /* PayU_TestTests.swift */,
 				56019158258E1827007497EA /* SearchListViewModelTests.swift */,
@@ -401,6 +427,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56019178258E19F0007497EA /* MovieResultBlankContent.json in Resources */,
+				56019168258E1905007497EA /* MovieListResult_Page1.json in Resources */,
+				5601917D258E1A17007497EA /* MovieResultNewContent.json in Resources */,
+				56019170258E19B6007497EA /* MovieResultPage_2.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +573,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56019182258E1A78007497EA /* MockDataGet.swift in Sources */,
+				5601915F258E1891007497EA /* MockNetworkManager.swift in Sources */,
 				56019159258E1827007497EA /* SearchListViewModelTests.swift in Sources */,
 				562248D1258DB26100543917 /* PayU_TestTests.swift in Sources */,
 			);
