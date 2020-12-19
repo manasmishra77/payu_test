@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,7 +27,6 @@
 		56224917258DB6C700543917 /* SearchCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56224913258DB6C700543917 /* SearchCollectionViewCell.xib */; };
 		56224918258DB6C700543917 /* SearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56224914258DB6C700543917 /* SearchList.swift */; };
 		56224930258DB7B100543917 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56224920258DB7B000543917 /* UIView+Extensions.swift */; };
-		56224931258DB7B100543917 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56224921258DB7B000543917 /* Utility.swift */; };
 		56224932258DB7B100543917 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56224922258DB7B000543917 /* Extensions.swift */; };
 		56224935258DB7B100543917 /* SpinnerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 56224925258DB7B100543917 /* SpinnerViewController.xib */; };
 		5622493C258DB7B100543917 /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5622492C258DB7B100543917 /* SpinnerViewController.swift */; };
@@ -86,7 +85,6 @@
 		56224913258DB6C700543917 /* SearchCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchCollectionViewCell.xib; sourceTree = "<group>"; };
 		56224914258DB6C700543917 /* SearchList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchList.swift; sourceTree = "<group>"; };
 		56224920258DB7B000543917 /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		56224921258DB7B000543917 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		56224922258DB7B000543917 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		56224925258DB7B100543917 /* SpinnerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpinnerViewController.xib; sourceTree = "<group>"; };
 		5622492C258DB7B100543917 /* SpinnerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 				5622492C258DB7B100543917 /* SpinnerViewController.swift */,
 				56224925258DB7B100543917 /* SpinnerViewController.xib */,
 				56224920258DB7B000543917 /* UIView+Extensions.swift */,
-				56224921258DB7B000543917 /* Utility.swift */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -270,7 +267,6 @@
 				3AE185D73A38F9A79F7BF6A3 /* Pods-PayU_TestTests.debug.xcconfig */,
 				F81E42B175C266497BC36BA3 /* Pods-PayU_TestTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -518,7 +514,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5622493C258DB7B100543917 /* SpinnerViewController.swift in Sources */,
-				56224931258DB7B100543917 /* Utility.swift in Sources */,
 				562248FB258DB64800543917 /* MovieList.swift in Sources */,
 				562248BE258DB26100543917 /* ViewController.swift in Sources */,
 				56224918258DB6C700543917 /* SearchList.swift in Sources */,

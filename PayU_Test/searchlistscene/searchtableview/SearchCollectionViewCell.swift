@@ -25,11 +25,8 @@ class SearchCollectionViewCell: UICollectionViewCell {
     }
 
     func configureCell(name: String, releaseDate: String?, posterImageURL: URL?, description: String)  {
-        if releaseDate != nil {
-            self.releasingLabel.text = "Releasing on: \(releaseDate!)"
-        } else {
-            self.releasingLabel.text = ""
-        }
+     
+        self.releasingLabel.text = releaseDate ?? ""
         self.nameLabel.text = name
         self.descriptionLabel.text = description
         self.posterImageView.kf.setImage(with: posterImageURL, placeholder: UIImage(named: "poster"), options: nil, progressBlock: nil) { (res) in

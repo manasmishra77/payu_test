@@ -50,6 +50,16 @@ struct MovieSearch : Codable {
     var imagePosterURL: URL? {
         return URL(string: imageBasePath + (poster_path ?? ""))
     }
+    
+    var releaseDateString: String {
+        if release_date == nil {
+            return ""
+        } else {
+            return "Releasing on: \(release_date!)"
+        }
+    }
+    
+   
 
     enum CodingKeys: String, CodingKey {
 

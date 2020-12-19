@@ -28,7 +28,7 @@ class SearchListViewModel {
     func getMovie(index: Int) -> (name: String, releaseDate: String?, posterImage: URL?, desc: String) {
         let movie = movieList[index]
         
-        return (name: movie.title ?? "", releaseDate: movie.release_date, posterImage: movie.imagePosterURL, desc: movie.overview ?? "")
+        return (name: movie.title ?? "", releaseDate: movie.releaseDateString, posterImage: movie.imagePosterURL, desc: movie.overview ?? "")
     }
     
     

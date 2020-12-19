@@ -9,17 +9,6 @@
 import UIKit
 
 
-extension UIColor{
-    convenience init(rgb: UInt, alphaVal: CGFloat) {
-        self.init(
-            red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0,
-            green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0,
-            blue: CGFloat(rgb & 0x0000FF) / 255.0,
-            alpha: alphaVal
-        )
-    }
-}
-
 extension UIView {
     func setCornerRadius(_ r: CGFloat) {
         self.layer.cornerRadius = r
@@ -27,28 +16,6 @@ extension UIView {
     }
 }
 
-
-public extension UIViewController {
-
-    /// Adds child view controller to the parent.
-    ///
-    /// - Parameter child: Child view controller.
-    func add(_ child: UIViewController, toView: UIView) {
-        addChild(child)
-        child.view.addAsSubViewWithConstraints(toView)
-        child.didMove(toParent: self)
-    }
-
-    /// It removes the child view controller from the parent.
-    func remove() {
-        guard parent != nil else {
-            return
-        }
-        willMove(toParent: nil)
-        removeFromParent()
-        view.removeFromSuperview()
-    }
-}
 
 extension UIViewController {
     /// Call this once to dismiss open keyboards by tapping anywhere in the view controller
@@ -80,129 +47,6 @@ extension UIViewController {
     
 }
 
-extension UITextField {
-    
-    func underlined(color: UIColor) {
-        let underline = UIView(frame: CGRect(x: self.frame.minX, y: self.frame.maxY + 1, width: self.frame.width, height: 1))
-        underline.backgroundColor = color.withAlphaComponent(0.3)
-        underline.addAsSubviewWithFourConstraintsWithConstantHeight(self, height: 1, bottom: 0)
-        underline.tag = 12
-        
-    }
-    
-    func changeUnderlineColor(color: UIColor) {
-        if let underline = self.viewWithTag(12) {
-            underline.backgroundColor = color
-        }
-    }
-    
-}
-
-
-extension String {
-
-    //To check text field or String is blank or not
-    var isBlank: Bool {
-        get {
-            let trimmed = trimmingCharacters(in: CharacterSet.whitespaces)
-            return trimmed.isEmpty
-        }
-    }
-
-    //Validate Email
-
-    var isEmail: Bool {
-        do {
-            let regex = try NSRegularExpression(pattern: "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}", options: .caseInsensitive)
-            return regex.firstMatch(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count)) != nil
-        } catch {
-            return false
-        }
-    }
-
-    var isAlphanumeric: Bool {
-        return !isEmpty && range(of: "[^a-zA-Z0-9]", options: .regularExpression) == nil
-    }
-
-    var isPhoneNumber: Bool {
-        do {
-            if self.count != 10 {
-                return false
-            }
-            let detector = try NSDataDetector(types: NSTextCheckingResult.CheckingType.phoneNumber.rawValue)
-            let matches = detector.matches(in: self, options: [], range: NSMakeRange(0, 10))
-            if let res = matches.first {
-                return res.resultType == .phoneNumber && res.range.location == 0 && res.range.length == self.count
-            } else {
-                return false
-            }
-        } catch {
-            return false
-        }
-    }
-    
-    //validate Password
-    var isValidPassword: Bool {
-        do {
-            let regex = try NSRegularExpression(pattern: "^[a-zA-Z_0-9\\-_,;.:#+*?=!§$%&/()@]+$", options: .caseInsensitive)
-            if(regex.firstMatch(in: self, options: NSRegularExpression.MatchingOptions(rawValue: 0), range: NSMakeRange(0, self.count)) != nil){
-
-                if(self.count>=6 && self.count<=20){
-                    return true
-                }else{
-                    return false
-                }
-            }else{
-                return false
-            }
-        } catch {
-            return false
-        }
-    }
-}
-
-extension UIFont {
-
-    public enum OpenSansType: String {
-        case semibold = "-SemiBold"
-        case thin = "-Thin"
-        case regular = ""
-        case light = "-Light"
-        case italic = "-Italic"
-        case extraBold = "-ExtraBold"
-        case extraLight = "-ExtraLight"
-        case boldItalic = "-BoldItalic"
-        case bold = "-Bold"
-        case medium = "-Medium"
-    }
-
-    static func OpenInter(_ type: OpenSansType = .regular, size: CGFloat = UIFont.systemFontSize) -> UIFont {
-        return UIFont(name: "Inter\(type.rawValue)", size: size)!
-    }
-
-    var isBold: Bool {
-        return fontDescriptor.symbolicTraits.contains(.traitBold)
-    }
-
-    var isItalic: Bool {
-        return fontDescriptor.symbolicTraits.contains(.traitItalic)
-    }
-
-}
-
-extension UIImageView {
-  public func maskCircle(anyImage: UIImage) {
-    self.contentMode = UIView.ContentMode.scaleAspectFill
-    self.layer.cornerRadius = self.frame.height / 2
-    self.layer.masksToBounds = false
-    self.clipsToBounds = true
-
-   // make square(* must to make circle),
-   // resize(reduce the kilobyte) and
-   // fix rotation.
-   self.image = anyImage
-  }
-}
 
 extension String {
 
@@ -316,66 +160,6 @@ extension UITextField {
         }
     }
 }
-
-extension UIButton {
-//    func addIconAndText(icon: String, font: String = "JioFont", icomoonFontSize: CGFloat = 20, text: String, color: UIColor) {
-//        var textFontSize: CGFloat = 0.0
-//        textFontSize = isIPAD ? 17 : 11
-//        let iconWithPlaceholder = icon + " "
-//        let iconRange = (iconWithPlaceholder as NSString).range(of: icon)
-//
-//        let attributedString = NSMutableAttributedString(string: icon)
-//        attributedString.addAttributes([.font: UIFont(name: "icomoon", size: icomoonFontSize) as Any, .foregroundColor: color], range: iconRange)
-//        attributedString.append(NSAttributedString(string: text, attributes: [.font: UIFont(name: font, size: textFontSize) as Any, .foregroundColor: color]))
-//        self.setAttributedTitle(attributedString, for: .normal)
-//        self.tintColor = color
-//    }
-    
-}
-
-
-protocol Loopable {
-    func allProperties() throws -> [String: Any]
-}
-
-extension Loopable {
-    func allProperties() throws -> [String: Any] {
-
-        var result: [String: Any] = [:]
-
-        let mirror = Mirror(reflecting: self)
-
-        // Optional check to make sure we're iterating over a struct or class
-        guard let style = mirror.displayStyle, style == .struct || style == .class else {
-            throw NSError()
-        }
-
-        for (property, value) in mirror.children {
-            guard let property = property else {
-                continue
-            }
-
-            result[property] = value
-        }
-
-        return result
-    }
-}
-
-
-extension UIImage {
-      func imageWithColor(color: UIColor) -> UIImage? {
-        var image = withRenderingMode(.alwaysTemplate)
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        color.set()
-        image.draw(in: CGRect(x: 0, y: 0, width: size.width, height: size.height))
-        image = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        return image
-    }
-}
-
-
 
 extension String {
     func heightOfLabel(withConstrainedWidth width: CGFloat, font: UIFont) -> CGFloat {
