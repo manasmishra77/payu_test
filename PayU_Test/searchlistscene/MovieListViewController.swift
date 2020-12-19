@@ -84,6 +84,7 @@ extension MovieListViewController: UITextFieldDelegate {
 extension MovieListViewController: SearchListDelegate {
     
     func itemSelected(id: String) {
+        self.searchTextField.text = id
         viewModel.fetchMovie(searchKey: id)
     }
     
