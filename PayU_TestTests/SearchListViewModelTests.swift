@@ -176,6 +176,16 @@ class SearchListViewModelTests: XCTestCase {
         waitForExpectations(timeout: 40, handler: nil)
     }
     
+    
+    func testUpdateRecommendationAppend() {
+        viewModel.recommendations = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"]
+        
+        viewModel.updateRecommendation(searchKey: "k")
+        
+        XCTAssert(self.viewModel.recommendations.first == "b", "recommendation not updated")
+        
+    }
+    
 
 }
 
